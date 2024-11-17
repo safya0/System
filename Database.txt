@@ -1,0 +1,32 @@
+CREATE DATABASE Magagment;
+
+Create TABLE Task(
+TaskId int PRIMARY KEY,
+Title Nvarchar(50),
+DescriptionTask Nvarchar(50)
+,StatusTask Nvarchar(50)
+,DouDate DateTime);
+
+Create TABLE Userr(
+UserId int Primary KEY , 
+UserName nvarchar(50),
+UserPassword Nvarchar(50),
+Email Nvarchar (50) UNIQUE,
+Rolee Nvarchar(50),
+TaskId int Foreign Key References Task(TaskId)
+);
+
+INSERT INTO Task(TaskId,Title,DescriptionTask,StatusTask,DouDate)
+VALUES (1,'Frontend','Finish the login page','Pending','1/1/2024'),
+ (2,'Frontend','Finish the Signup page','In Progress','1/1/2024'),
+ (3,'Frontend','Finish the login page','Pending','1/1/2024')
+
+ Select* from Task;
+
+ INSERT INTO Userr(UserId,UserName,UserPassword,Email,Rolee,TaskId)
+VALUES (101,'SAFIYA','Admin123','safya@gmail.com','Manager',1),
+(102,'Sara','SARA123','sara@gmail.com','User',2),
+(103,'Nosaiba','Admin123','nosaiba@gmail.com','Manager',1),
+(104,'Samla','SALMA123','s@gmail.com','User',1)
+
+Select* from Userr;
